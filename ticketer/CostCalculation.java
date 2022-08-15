@@ -1,4 +1,3 @@
-
 package ticketer;
 
 public class CostCalculation  extends Reservation
@@ -6,10 +5,11 @@ public class CostCalculation  extends Reservation
     double totalCost;
     CostCalculation(){}
     
-   Reservation r = new Reservation();
+   
    
     public double totalCost()
     {
+        Reservation r = new Reservation();
         /// Variations With Root Type
         if(r.vehicleType.equals("Bus"))
         {

@@ -1,4 +1,3 @@
-
 package ticketer;
 
 public class Train extends Vehicle

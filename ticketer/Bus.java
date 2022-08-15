@@ -1,4 +1,3 @@
-
 package ticketer;
 
 public class Bus extends Vehicle

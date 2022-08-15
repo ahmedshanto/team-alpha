@@ -1,4 +1,3 @@
-
 package ticketer;
 
 import java.util.Scanner;
@@ -6,6 +5,16 @@ import java.util.Scanner;
 public class Payment 
 {
     String accountNumber;
+    Payment()
+    {
+        /*
+        System.out.println("Choose Payment Method -->");
+        System.out.println("1. Bkash");
+        System.out.println("2. Rocket");
+        System.out.println("3. Credit/Visa");
+        System.out.print("Enter Your Choice : ");
+        */
+    }
     
     Payment(int choice)
     {
@@ -19,9 +28,18 @@ public class Payment
                 System.out.print("Enter BKash Number : ");
                 accountNumber = input.nextLine();
                 
+                 
+                System.out.print("Confirm? (Y/N) : ");
+                String confirm = input.nextLine();
+                confirm = confirm.toLowerCase();
+                if(confirm.equals("y"))
+                {
                 System.out.println("-----------------------------------");
                 System.out.println("|        PAYMENT SUCCESSFUL !!!    | ");
                 System.out.println("-----------------------------------");
+                }
+                else{System.exit(0);}
+                break;
     
             }
             
@@ -31,9 +49,18 @@ public class Payment
                 System.out.print("Enter Rocket Number : ");
                 accountNumber = input.nextLine();
                 
+                 
+                System.out.print("Confirm? (Y/N)");
+                String confirm = input.nextLine();
+                confirm = confirm.toLowerCase();
+                if(confirm.equals("y"))
+                {
                 System.out.println("-----------------------------------");
                 System.out.println("|        PAYMENT SUCCESSFUL !!!    | ");
                 System.out.println("-----------------------------------");
+                }
+                else{System.exit(0);}
+                break;
     
             }
             
@@ -43,12 +70,21 @@ public class Payment
                 System.out.print("Enter Credit Card Number : ");
                 accountNumber = input.nextLine();
                 
+                System.out.print("Confirm? (Y/N)");
+                String confirm = input.nextLine();
+                confirm = confirm.toLowerCase();
+                if(confirm.equals("y"))
+                {
+                
                 System.out.println("-----------------------------------");
                 System.out.println("|        PAYMENT SUCCESSFUL !!!    | ");
                 System.out.println("-----------------------------------");
+                }
+                else{System.exit(0);}
+                break;
     
             }
-            default:{System.out.println("Choose A Valid Option (1-3)");}
+            default:{System.out.println("Choose A Valid Option (1-3)");break;}
             
             
         }

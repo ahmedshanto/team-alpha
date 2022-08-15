@@ -1,25 +1,35 @@
-
 package ticketer;
+
 import java.util.Scanner;
-import java.io.*;
-public class Start 
-{
-    public static void cls() 
-    {
+
+/*
+BUG IN RESERVATION LINE 30
+BUG IN MAIN METHOD LINE 60
+BUG IN RESERVATION LINE 43
+*/
+
+public class Start {
+
+    public static void cls() {
         /// For Clear Screen
-        try 
-        {/// indicates from /c for cmd inheriting the function "cls";
+        try {/// indicates from /c for cmd inheriting the function "cls";
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        } 
-        catch (Exception e) 
-        {
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
-    
-    public static void main(String[] args) 
-    {
-        
+
+    public static void main(String[] args) {
+
+        try{
+            Login login = new Login();
+        }catch (Exception e){
+            System.out.print("");
+        }
+
+
+        Scanner input = new Scanner(System.in);
+
         /*
         1. Login
         2. Registration
@@ -31,17 +41,47 @@ public class Start
            ii) Train
           iii) Plane
            iv) Ship
-        5. Confirmation
-        6. Payment
+        5. Cost Calculation
+        6. Confirmation Payment
         7. Print Ticket
-        */
+         */
+        Reservation r = new Reservation(1);
+        System.out.print("Enter Any Key to Continue.......");
+        input.nextLine();
+        cls();
+        System.out.println("                      Choose Your Root --> ");
+        System.out.println("                             1. Bus");
+        System.out.println("                             2. Train");
+        System.out.println("                             3. Plane");
+        System.out.println("                             4. Ship");
+        System.out.print("                        Enter Your Choice : ");
+        int root = input.nextInt();
+        cls(); 
+        ChooseRoot cr = new ChooseRoot(root);
+        System.out.print("Enter Any Key to Continue.......");
+        input.nextLine();
+        input.nextLine();
+        cls();
         
-       
+        CostCalculation cc = new CostCalculation();
         
-        
+
+        System.out.println("Choose Payment Method -->");
+        System.out.println("1. Bkash");
+        System.out.println("2. Rocket");
+        System.out.println("3. Credit/Visa");
+        System.out.print("Enter Your Choice : ");
+        int choice = input.nextInt();
+        //cls();
+        Payment p = new Payment(choice);
+        System.out.println("Enter Any Key to Continue.......");
+        input.nextLine();
+        input.nextLine();
+        cls();
+        PrintTicket pt = new PrintTicket();
+        //System.out.println("Enter Any Key to Continue.......");
+        //input.nextLine();
+
     }
- 
-    
-    
-    
+
 }
